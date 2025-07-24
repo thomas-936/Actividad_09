@@ -33,12 +33,19 @@ while opcion != 4:
 
                 turistas[codigo] = {}
                 turistas[codigo]["nombre"] = input("Ingrese el nombre del clinte: ")
-                turistas[codigo]["destino"] = {}
+                turistas[codigo]["destino"] = []
 
-                cantidad_destinos = int(input("Cuntos destinos desea ingresar: "))
+                while True:
+                    cantidad_destinos = int(input("¿Cuántos destinos desea ingresar? (mínimo 1, máximo 5): "))
+                    if cantidad_destinos >= 1 and cantidad_destinos < 5:
+                        break
+                    else:
+                        print("Error: debe ingresar entre 1 y 5 destinos.")
+
                 for j in range(cantidad_destinos):
-                    print(f"Destino #{i+1}:")
-                    destino = input("Ingrse el nombre del desttino: ")
+                    destino = input(f"Destino #{j + 1}: ")
+                    turistas[codigo]["destinos"].append(destino)
+
 
 
 
